@@ -1,0 +1,56 @@
+# This file is covered by the LICENSE file in the root of this project.
+labels: 
+  0: "obstacle"      # 障碍物
+  1: "road"          # 路面
+  2: "curb"          # 路沿
+  3: "plant"         # 绿植
+  4: "fence"         # 栅栏
+  5: "wall"          # 围墙
+  6: "ignore"        # 忽略
+  7: "noise"         # 噪声
+color_map: # rgb，注意cv2默认的颜色通道顺序为bgr，用cv2显示图片要进行色彩转换
+  0 : [0, 0, 0]        # 背景，不存在点云的区域，黑色
+  1 : [255, 255, 255]  # 障碍物，白色#ffffff
+  2 : [0, 191, 255]    # 路面，淡蓝色#00bfff
+  3 : [255, 0, 0]      # 路沿，红色#ff0000
+  4 : [0, 255, 0]      # 绿植，绿色#00ff00
+  5 : [255, 0, 255]    # 栅栏，紫色#ff00ff
+  6 : [255, 106, 106]  # 围墙，橙色#ff6a6a
+  7 : [255, 214, 169]  # 忽略，浅黄色#ffd6a9
+  8 : [204, 51, 255]   # 噪声，粉色#cc33ff
+# classes that are indistinguishable from single scan or inconsistent in
+# ground truth are mapped to their closest equivalent
+learning_map:
+  0: 6     # "obstacle"
+  1: 1     # "road"
+  2: 2     # "curb"
+  3: 3     # "plant"
+  4: 4     # "fence"
+  5: 5     # "wall"
+  6: 0     # "ignore"
+  7: 7     # "noise"
+learning_map_inv: # inverse of previous map
+  0: 6     # "ignore"
+  1: 1     # "road"
+  2: 2     # "curb"
+  3: 3     # "plant"
+  4: 4     # "fence"
+  5: 5     # "wall"
+  6: 0     # "obstacle"
+  7: 7     # "noise"
+learning_ignore: # Ignore classes
+  0: True     # "ignore"
+  1: False     # "road"
+  2: False     # "curb"
+  3: False     # "plant"
+  4: False     # "fence"
+  5: False     # "wall"
+  6: False      # "obstacle"
+  7: False     # "noise"
+split: # sequence numbers
+  train:
+    - 0
+  valid:
+    - 1
+  test:
+    - 1
